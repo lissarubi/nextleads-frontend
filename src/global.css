@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Sen', sans-serif;
+    color: #333;
+}
+body{
+    background-color: #fcfcfc;
+}
+nav{
+    font-size: 2.6ch;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    padding: 25px;
+    background-color: #ebebeb;
+}
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #202020;
+    border-radius: 10px;
+}
+.form{
+    border-style: none;
+    padding: 10%;
+    border-radius: 15px;
+    background-color: #ebebeb;
+    width: 40vw;
+    height: 40vh;
+    font-size: 3ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.formInput{
+    font-size: 1.5ch;
+    width: 90%;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 3%;
+    border-width: 3px;
+    border-color: #ddd;
+    color: #333;
+}
+#postForm{
+    font-size: 2.4ch;
+    width: 90%;
+}
+.leadsBox{
+    margin-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.lead{
+    width: 30vw;
+    height: 45vh;
+    margin: 2vw;
+    font-size: 2.5ch;
+    text-align: center;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-style: solid;
+    border-color: #ddd;
+    border-radius: 5px;
+}
+.notContacted{
+    cursor: pointer;
+    background-color: #0B9C92;
+    border-style: none;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.notContacted:hover{
+    background-color: #0C86A6;
+}
+.contacted{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    color: #C24404;
+    border-style: solid;
+    border-color: #C24404;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+}
+.interested{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    color: greenyellow;
+    border-style: solid;
+    border-color: greenyellow;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.notInterested{
+    cursor: pointer;
+    background-color: #199FFF;
+    color: yellow;
+    border-style: none;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.notInterested:hover{
+    background-color: #0CC6E8;
+}
+.notMatriculated{
+    cursor: pointer;
+    background-color: #09DB17;
+    color: #2196f3;
+    border-style: none;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.matriculated{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    color: #09DB17;
+    border-style: solid;
+    border-color: #09DB17;
+    padding: 1vh;
+    font-size: 2ch;
+    border-radius: 6px;
+    transition: 400ms;
+}
+.li{
+    display: inline-block;
+    margin-left: 5vw;
+    padding: 1.2vh;
+    background-color: #00000000;
+    border-radius: 10px;
+    transition: 400ms;
+    font-weight: bold;
+    color: #333;
+}
+.li:hover{
+    background-color: #64b5f6;
+}
+ul{
+    margin-left: 50%;
+}
+main{
+    text-align: center;
+}
+.heading{
+    font-family: 'Sen', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.blackblock{
+    font-size: 3ch;
+}
+.startButton {
+    background-color:#64b5f6;
+    border-radius: 15px;
+    border-style: none;
+    color: #333;
+    cursor: pointer;
+    padding: 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3ch;
+    transition: 500ms;
+    font-size: 3ch;
+}
+.startButton:hover{
+    background-color: #4db6ac;
+    border-radius: 5px;
+}
+.about{
+    margin-top: 15vh;
+}
+.title{
+    font-size: 4.5ch;
+}
+.anchor{
+    text-decoration: none;
+    transition: 400ms;
+}
+.decoration{
+    color: #1A81DB;
+}
+.cutDiv{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.italic{
+    color: red;
+}
+
+#toggleTheme{
+    margin-left: 5px;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.checked{
+    background-color: #199FFF;
+}
+
+@media (max-width: 500px){
+    .toggle-button{
+        display: flex;
+    }
+    .navlinks.active{
+        display: none
+    }
+    nav{    
+        font-size: 2ch;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+    }
+    nav.active{
+        display: none;
+    }
+    .li{
+        margin-bottom: 8px;
+    }
+    #postForm{
+        width: 50vw;
+    }
+    .formInput{
+        width: 95%;
+    }
+    .lead{
+        width: 100%;
+    }
+    .contacted{
+        width: 80%;
+    }
+    .notContacted{
+        width: 80%;
+    }
+    .interested{
+        width: 80%;
+    }
+    .notInterested{
+        width: 80%;
+    }
+    .matriculated{
+        width: 80%;
+    }
+    .notMatriculated{
+        width: 80%;
+    }
+}
