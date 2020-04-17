@@ -26,7 +26,7 @@ export default function Form() {
             for (let i = 0; i< possibleIds.length; i++){
                 if (possibleIds[i].name === x){
                     setInstName(possibleIds[i].name)
-                    setInstId(possibleIds[i].loginId)
+                    setInstId(possibleIds[i].loginid)
                 }
             }
 
@@ -43,9 +43,9 @@ export default function Form() {
             name: leadName,
             email: leadEmail,
             tel: leadTel,
-            contacted: 0,
-            interested: 0,
-            matriculated: 0,
+            contacted: false,
+            interested: false,
+            matriculated: false,
         }
         try{
             await api.post('leads', data, {

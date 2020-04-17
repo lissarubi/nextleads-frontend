@@ -20,12 +20,12 @@ export default function Login() {
         )
         try {
             let response = await api.post('session', data)
-            localStorage.setItem('loginId', response.data.loginId)
+            localStorage.setItem('loginId', response.data.loginid)
             localStorage.setItem('instName', name)
 
             history.push('/leads')
         } catch(err){
-            console.log('Erro na conexão, tente novamente')
+            alert('Erro na conexão, tente novamente')
         }
     }
 

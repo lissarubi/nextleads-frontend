@@ -114,23 +114,23 @@ export default function Leads(){
                 <span className="blackblock"></span>
                 <div className="leadsBox">
                     {leads.map(lead => (
-                        lead.contacted === 0 ?
+                        lead.contacted === false ?
                             <div className="lead" key={lead.id}>
                                 <div className="leadItem">{lead.name}</div><br />
                                 <div className="leadItem">{lead.email}</div><br />
                                 <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="notContacted" onClick={ () => handleContacted(lead.id, lead.loginId) }>Contactar</button></div>
+                                <div className="leadItem"><button className="notContacted" onClick={ () => handleContacted(lead.id, lead.loginid) }>Contactar</button></div>
                             </div>
-                        : lead.contacted === 1 && lead.interested === 1 && lead.matriculated === 0 ?
+                        : lead.contacted === true && lead.interested === true && lead.matriculated === false ?
                             <div className="lead" key={lead.id}>
                                 <div className="leadItem">{lead.name}</div><br />
                                 <div className="leadItem">{lead.email}</div><br />
                                 <div className="leadItem">{lead.tel}</div>
                                 <div className="leadItem"><button className="contacted" >Contactado</button></div>
                                 <div className="leadItem"><button className="interested" >Interessado</button></div>
-                                <div className="leadItem"><button className="notMatriculated" onClick={ () => handleMatriculated(lead.id, lead.loginId) }>Matriculado</button></div>
+                                <div className="leadItem"><button className="notMatriculated" onClick={ () => handleMatriculated(lead.id, lead.loginid) }>Matriculado</button></div>
                             </div>
-                        : lead.contacted === 1 && lead.interested === 1 && lead.matriculated === 1 ?
+                        : lead.contacted === true && lead.interested === true && lead.matriculated === true ?
                             <div className="lead" key={lead.id}>
                                 <div className="leadItem">{lead.name}</div><br />
                                 <div className="leadItem">{lead.email}</div><br />
@@ -139,7 +139,7 @@ export default function Leads(){
                                 <div className="leadItem"><button className="interested" >Interessado</button></div>
                                 <div className="leadItem"><button className="matriculated" >Matriculado</button></div>
                             </div>
-                        : lead.contacted === 1 && lead.interested === 1 ?
+                        : lead.contacted === true && lead.interested === true ?
                             <div className="lead" key={lead.id}>
                                 <div className="leadItem">{lead.name}</div><br />
                                 <div className="leadItem">{lead.email}</div><br />
@@ -152,7 +152,7 @@ export default function Leads(){
                                 <div className="leadItem">{lead.email}</div><br />
                                 <div className="leadItem">{lead.tel}</div>
                                 <div className="leadItem"><button className="contacted" id={lead.id} >Contactado</button></div>
-                                <div className="leadItem"><button className="notInterested" id={lead.id} onClick={ () => handleInterested(lead.id, lead.loginId) }>Interessado</button></div>
+                                <div className="leadItem"><button className="notInterested" id={lead.id} onClick={ () => handleInterested(lead.id, lead.loginid) }>Interessado</button></div>
                             </div>
 
                     ))}

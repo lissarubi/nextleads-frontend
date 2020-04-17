@@ -138,7 +138,7 @@ nav{
 .notMatriculated{
     cursor: pointer;
     background-color: #09DB17;
-    color: #2196f3;
+    color: #333;
     border-style: none;
     padding: 1vh;
     font-size: 2ch;
