@@ -46,6 +46,7 @@ export default function Form() {
             contacted: false,
             interested: false,
             matriculated: false,
+            view: true,
         }
         try{
             await api.post('leads', data, {
@@ -68,13 +69,13 @@ export default function Form() {
                 <div className="formBox" id="formBox">
                     <span className="blackblock">Preencha o formulário abaixo para ser contactado pela {instName}</span>
                     <form className="form" onSubmit={handleForm}>
-                        <div className="loginItem"><input className="formInput" type="text" name="name" id="name" placeholder="Seu nome" 
+                        <div className="loginItem"><input className="formInput" type="text" name="name" id="name" placeholder="Seu nome" required
                         value={leadName}
                         onChange={e => setLeadName(e.target.value)} /></div>
-                        <div className="loginItem"><input className="formInput" type="email" name="email" id="email" placeholder="Seu E-mail"
+                        <div className="loginItem"><input className="formInput" type="email" name="email" id="email" placeholder="Seu E-mail" required
                         value={leadEmail}
                         onChange={e => setLeadEmail(e.target.value)} /></div>
-                        <div className="loginItem"><input className="formInput" type="tel" name="tel" id="tel" placeholder="Seu telefone"
+                        <div className="loginItem"><input className="formInput" type="tel" name="tel" id="tel" placeholder="Seu telefone" required
                         value={leadTel}
                         onChange={e => setLeadTel(e.target.value)} /></div>
                         <button type="submit" className="startButton">Enviar <FiSend size={25} color="#fff" /></button>

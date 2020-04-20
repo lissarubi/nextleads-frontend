@@ -10,9 +10,6 @@
     border-color: #ddd;
 }
 
-.delete{
-    border: 0;
-    width: 0;
-    height: 0;
+.deleteLead{
     margin-left: 95%;
 }

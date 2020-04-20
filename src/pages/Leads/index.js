@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
-import { FiPower } from 'react-icons/fi'
+import { FiPower, FiTrash2 } from 'react-icons/fi'
 import { Link, useHistory } from 'react-router-dom'
 import api from '../../services/api'
 import Darkmode from 'darkmode-js'
@@ -93,7 +93,27 @@ export default function Leads(){
             alert('Falha na conexão, tente novamente mais tarde ')
         }
     }
+    async function handleDelete(leadId, instId){
+        let data = ({
+            leadId : leadId,
+            item: 'view'
+        })
 
+        try {
+            api.put('/changeLeadItem', data, {
+                headers: {
+                    authorization: instId
+                }
+            })
+
+            setTimeout(() => {
+                window.location.reload(false)
+            }, 1000)
+        }catch(err){
+            alert('Falha na conexão, tente novamente mais tarde ')
+        }
+    }
+    
     return(
         <div className="leads-conteiner">
             <header>
@@ -114,46 +134,53 @@ export default function Leads(){
                 <span className="blackblock"></span>
                 <div className="leadsBox">
                     {leads.map(lead => (
-                        lead.contacted === false ?
-                            <div className="lead" key={lead.id}>
-                                <div className="leadItem">{lead.name}</div><br />
-                                <div className="leadItem">{lead.email}</div><br />
-                                <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="notContacted" onClick={ () => handleContacted(lead.id, lead.loginid) }>Contactar</button></div>
-                            </div>
-                        : lead.contacted === true && lead.interested === true && lead.matriculated === false ?
-                            <div className="lead" key={lead.id}>
-                                <div className="leadItem">{lead.name}</div><br />
-                                <div className="leadItem">{lead.email}</div><br />
-                                <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="contacted" >Contactado</button></div>
-                                <div className="leadItem"><button className="interested" >Interessado</button></div>
-                                <div className="leadItem"><button className="notMatriculated" onClick={ () => handleMatriculated(lead.id, lead.loginid) }>Matriculado</button></div>
-                            </div>
-                        : lead.contacted === true && lead.interested === true && lead.matriculated === true ?
-                            <div className="lead" key={lead.id}>
-                                <div className="leadItem">{lead.name}</div><br />
-                                <div className="leadItem">{lead.email}</div><br />
-                                <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="contacted" >Contactado</button></div>
-                                <div className="leadItem"><button className="interested" >Interessado</button></div>
-                                <div className="leadItem"><button className="matriculated" >Matriculado</button></div>
-                            </div>
-                        : lead.contacted === true && lead.interested === true ?
-                            <div className="lead" key={lead.id}>
-                                <div className="leadItem">{lead.name}</div><br />
-                                <div className="leadItem">{lead.email}</div><br />
-                                <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="contacted" >Contactado</button></div>
-                                <div className="leadItem"><button className="interested" >Interessado</button></div>
-                            </div> : 
-                            <div className="lead" key={lead.id}>
-                                <div className="leadItem">{lead.name}</div><br />
-                                <div className="leadItem">{lead.email}</div><br />
-                                <div className="leadItem">{lead.tel}</div>
-                                <div className="leadItem"><button className="contacted" id={lead.id} >Contactado</button></div>
-                                <div className="leadItem"><button className="notInterested" id={lead.id} onClick={ () => handleInterested(lead.id, lead.loginid) }>Interessado</button></div>
-                            </div>
+                        lead.view === true ?
+                            lead.contacted === false ?
+                                <div className="lead" key={lead.id}>
+                                    <FiTrash2 size={25} color="#333" className="deleteLead" onClick={ () => handleDelete(lead.id, lead.loginid) } />
+                                    <div className="leadItem">{lead.name}</div><br />
+                                    <div className="leadItem">{lead.email}</div><br />
+                                    <div className="leadItem">{lead.tel}</div>
+                                    <div className="leadItem"><button className="notContacted" onClick={ () => handleContacted(lead.id, lead.loginid) }>Contactar</button></div>
+                                </div>
+                            : lead.contacted === true && lead.interested === true && lead.matriculated === false ?
+                                <div className="lead" key={lead.id}>
+                                    <FiTrash2 size={25} color="#333" className="deleteLead" onClick={ () => handleDelete(lead.id, lead.loginid) } />
+                                    <div className="leadItem">{lead.name}</div><br />
+                                    <div className="leadItem">{lead.email}</div><br />
+                                    <div className="leadItem">{lead.tel}</div>
+                                    <div className="leadItem"><button className="contacted" >Contactado</button></div>
+                                    <div className="leadItem"><button className="interested" >Interessado</button></div>
+                                    <div className="leadItem"><button className="notMatriculated" onClick={ () => handleMatriculated(lead.id, lead.loginid) }>Matriculado</button></div>
+                                </div>
+                            : lead.contacted === true && lead.interested === true && lead.matriculated === true ?
+                                <div className="lead" key={lead.id}>
+                                    <FiTrash2 size={25} color="#333" className="deleteLead" onClick={ () => handleDelete(lead.id, lead.loginid) } />
+                                    <div className="leadItem">{lead.name}</div><br />
+                                    <div className="leadItem">{lead.email}</div><br />
+                                    <div className="leadItem">{lead.tel}</div>
+                                    <div className="leadItem"><button className="contacted" >Contactado</button></div>
+                                    <div className="leadItem"><button className="interested" >Interessado</button></div>
+                                    <div className="leadItem"><button className="matriculated" >Matriculado</button></div>
+                                </div>
+                            : lead.contacted === true && lead.interested === true ?
+                                <div className="lead" key={lead.id}>
+                                    <FiTrash2 size={25} color="#333" className="deleteLead" onClick={ () => handleDelete(lead.id, lead.loginid) } />
+                                    <div className="leadItem">{lead.name}</div><br />
+                                    <div className="leadItem">{lead.email}</div><br />
+                                    <div className="leadItem">{lead.tel}</div>
+                                    <div className="leadItem"><button className="contacted" >Contactado</button></div>
+                                    <div className="leadItem"><button className="interested" >Interessado</button></div>
+                                </div> :
+                                <div className="lead" key={lead.id}>
+                                    <FiTrash2 size={25} color="#333" className="deleteLead" onClick={ () => handleDelete(lead.id, lead.loginid) } />
+                                    <div className="leadItem">{lead.name}</div><br />
+                                    <div className="leadItem">{lead.email}</div><br />
+                                    <div className="leadItem">{lead.tel}</div>
+                                    <div className="leadItem"><button className="contacted" id={lead.id} >Contactado</button></div>
+                                    <div className="leadItem"><button className="notInterested" id={lead.id} onClick={ () => handleInterested(lead.id, lead.loginid) }>Interessado</button></div>
+                                </div> :
+                                null
 
                     ))}
                 </div>
