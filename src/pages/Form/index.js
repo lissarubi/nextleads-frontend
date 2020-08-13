@@ -8,7 +8,7 @@ import Header from '../../utils/Header';
 
 export default function Form() {
   const [instName, setInstName] = useState('');
-  const [instId, setInstId] = useState(0);
+  const [instId, setInstId] = useState('');
   const history = useHistory();
 
   const [leadName, setLeadName] = useState('');
@@ -24,7 +24,8 @@ export default function Form() {
       const response = await api.get('users');
       const possibleIds = response.data.users;
       for (let i = 0; i < possibleIds.length; i++) {
-        if (possibleIds[i].name === x) {
+        if (possibleIds[i].username === x) {
+          console.log(possibleIds[i]);
           setInstName(possibleIds[i].name);
           setInstId(possibleIds[i].loginid);
         } else {
@@ -46,8 +47,9 @@ export default function Form() {
       contacted: false,
       interested: false,
       matriculated: false,
-      view: true,
+      instId,
     };
+    console.log(data);
     try {
       await api.post('leads', data, {
         headers: {

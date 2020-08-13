@@ -1,15 +1,16 @@
-.logout{
-    padding: 1vw;
-    border-style: solid;
-    border-color: #333;
-    border-radius: 12px;
-    border-width: 2px;
-    transition: 400ms;
+.logout {
+  padding: 1vw;
+  border-style: solid;
+  border-color: #333;
+  border-radius: 12px;
+  border-width: 2px;
+  transition: 400ms;
 }
-.logout:hover{
-    border-color: #ddd;
+.logout:hover {
+  border-color: #ddd;
 }
 
-.deleteLead{
-    margin-left: 95%;
+.deleteLead {
+  margin-left: 95%;
+  cursor: pointer;
 }

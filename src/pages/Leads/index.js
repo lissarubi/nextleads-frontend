@@ -123,7 +123,7 @@ export default function Leads() {
             <span className="bar"></span>
             <span className="bar"></span>
           </Link>
-          Olá, administrador(a) do(a) {instName}
+          Olá, administrador(a)!
           <div className="navlinks">
             <Link to="/">
               <div className="li">Next</div>
