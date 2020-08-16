@@ -53,7 +53,6 @@ export default function Estatisticas() {
     return lead.matriculated === true;
   }
 
-  console.log(leads);
   return (
     <div className="Estatisticas-conteiner">
       <header>
@@ -81,9 +80,6 @@ export default function Estatisticas() {
         </nav>
       </header>
       <Sidebar />
-      <div className="statsTitle">
-        <h1>Estatísticas</h1>
-      </div>
       <div className="statistics">
         <div className="statsCard total">
           <h1>Leads Totais</h1>
@@ -105,7 +101,7 @@ export default function Estatisticas() {
         </div>
 
         <div className="statsCard matriculates">
-          <h1>Matriculados</h1>
+          <h1>Matrículados</h1>
           <div className="statsNumber">
             {leads.length} de {leads.filter(getMatriculated).length}
           </div>

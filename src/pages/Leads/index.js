@@ -143,8 +143,9 @@ export default function Leads() {
       </header>
       <Sidebar />
       <main>
-        <h1 className="leadsTitle">Leads</h1>
-        <span className="blackblock"></span>
+        <span className="blackblock">
+          <h2>Leads</h2>
+        </span>
         <div className="leadsBox">
           {leads.map((lead) =>
             lead.contacted === false ? (

@@ -9,20 +9,20 @@
 .logout:hover {
   border-color: #ddd;
 }
-
+.blackblock {
+  margin-top: 1vh;
+  margin-left: auto;
+}
 .deleteLead {
   margin-left: 95%;
   cursor: pointer;
 }
 
-.leadsTitle {
-  margin-top: 2.5vh;
-  margin-bottom: 2.5vh;
-}
 .leadsBox {
+  margin-top: 3vh;
   overflow: scroll;
   width: 78%;
-  margin-left: 23vh;
+  margin-left: 18vw;
   height: 60vh;
 }
 .lead {
@@ -33,6 +33,7 @@
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1vh;
   font-size: 2.5ch;
   border-style: solid;
   border-color: #ddd;
