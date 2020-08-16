@@ -1,0 +1,45 @@
+.statistics {
+  margin-top: 3vh;
+  width: 78%;
+  margin-left: 23vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.statsCard {
+  margin: 0.5em;
+  width: 35vw;
+  text-align: center;
+  height: 45vh;
+  background-color: #ebebeb;
+  border-style: solid;
+  border-width: 0.3em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.statsTitle {
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  margin-left: 50vh;
+}
+
+.statsNumber {
+  font-size: 4ch;
+}
+.contacts {
+  border-color: #0b9c92;
+}
+.interests {
+  border-color: #199fff;
+}
+.matriculates {
+  border-color: #09db17;
+}
+.total {
+  border-color: #555;
+}

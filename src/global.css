@@ -6,7 +6,6 @@ html {
   padding: 0;
   margin: 0;
   font-family: 'Sen', sans-serif;
-  color: #333;
 }
 body {
   background-color: #fcfcfc;
@@ -17,8 +16,9 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  height: 7vh;
   align-items: center;
-  padding: 25px;
+  padding: 3vh;
   background-color: #ebebeb;
 }
 .toggle-button {
@@ -66,100 +66,6 @@ nav {
 #postForm {
   font-size: 2.4ch;
   width: 90%;
-}
-.leadsTitle {
-  margin-top: 2.5vh;
-  margin-bottom: 2.5vh;
-}
-.leadsBox {
-  overflow: scroll;
-  width: 90%;
-  height: 60vh;
-  margin-left: auto;
-  margin-right: auto;
-}
-.lead {
-  width: 98%;
-  text-align: center;
-  min-height: 10vh;
-  max-height: 45vh;
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 2.5ch;
-  border-style: solid;
-  border-color: #ddd;
-  border-radius: 5px;
-}
-.leadItem {
-  margin: 10px;
-}
-.notContacted {
-  cursor: pointer;
-  background-color: #0b9c92;
-  border-style: none;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-  transition: 400ms;
-}
-.notContacted:hover {
-  background-color: #0c86a6;
-}
-.contacted {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  color: #c24404;
-  border-style: solid;
-  border-color: #c24404;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-}
-.interested {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  color: greenyellow;
-  border-style: solid;
-  border-color: greenyellow;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-  transition: 400ms;
-}
-.notInterested {
-  cursor: pointer;
-  background-color: #199fff;
-  color: yellow;
-  border-style: none;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-  transition: 400ms;
-}
-.notInterested:hover {
-  background-color: #0cc6e8;
-}
-.notMatriculated {
-  cursor: pointer;
-  background-color: #09db17;
-  color: #333;
-  border-style: none;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-  transition: 400ms;
-}
-.matriculated {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  color: #09db17;
-  border-style: solid;
-  border-color: #09db17;
-  padding: 1vh;
-  font-size: 2ch;
-  border-radius: 6px;
-  transition: 400ms;
 }
 .li {
   display: inline-block;
@@ -242,50 +148,25 @@ main {
   background-color: #199fff;
 }
 
-@media (max-width: 500px) {
-  .toggle-button {
-    display: flex;
-  }
-  .navlinks.active {
-    display: none;
-  }
-  nav {
-    font-size: 2ch;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: center;
-  }
-  nav.active {
-    display: none;
-  }
-  .li {
-    margin-bottom: 8px;
-  }
-  #postForm {
-    width: 50vw;
-  }
-  .formInput {
-    width: 95%;
-  }
-  .lead {
-    width: 100%;
-  }
-  .contacted {
-    width: 80%;
-  }
-  .notContacted {
-    width: 80%;
-  }
-  .interested {
-    width: 80%;
-  }
-  .notInterested {
-    width: 80%;
-  }
-  .matriculated {
-    width: 80%;
-  }
-  .notMatriculated {
-    width: 80%;
-  }
+.sidebar {
+  height: 100%;
+  width: 12vw;
+  max-width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidebarItem {
+  text-decoration: none;
+  font-size: 2ch;
+  color: white;
+  display: block;
+  text-align: center;
+  background-color: #222;
+  padding: 0.5em;
+  margin-bottom: 2vh;
 }

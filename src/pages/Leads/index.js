@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
+import Sidebar from '../../utils/Sidebar';
 import api from '../../services/api';
 import Darkmode from 'darkmode-js';
 const darkmode = new Darkmode();
@@ -16,6 +17,10 @@ export default function Leads() {
   function toggleMenu(e) {
     const navlinks = document.querySelector('div.navlinks');
     navlinks.classList.toggle('active');
+  }
+
+  if (instName === undefined || loginId === undefined) {
+    history.push('/');
   }
 
   useEffect(() => {
@@ -123,7 +128,6 @@ export default function Leads() {
             <span className="bar"></span>
             <span className="bar"></span>
           </Link>
-          Olá, administrador(a)!
           <div className="navlinks">
             <Link to="/">
               <div className="li">Next</div>
@@ -131,15 +135,16 @@ export default function Leads() {
           </div>
           <FiPower
             size={30}
-            color="#11548f"
+            style={{ color: '#333' }}
             className="logout"
             onClick={handleLogout}
           />
         </nav>
       </header>
+      <Sidebar />
       <main>
-        <span className="blackblock"></span>
         <h1 className="leadsTitle">Leads</h1>
+        <span className="blackblock"></span>
         <div className="leadsBox">
           {leads.map((lead) =>
             lead.contacted === false ? (

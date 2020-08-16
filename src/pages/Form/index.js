@@ -25,7 +25,6 @@ export default function Form() {
       const possibleIds = response.data.users;
       for (let i = 0; i < possibleIds.length; i++) {
         if (possibleIds[i].username === x) {
-          console.log(possibleIds[i]);
           setInstName(possibleIds[i].name);
           setInstId(possibleIds[i].loginid);
         } else {
@@ -49,7 +48,6 @@ export default function Form() {
       matriculated: false,
       instId,
     };
-    console.log(data);
     try {
       await api.post('leads', data, {
         headers: {
@@ -110,7 +108,7 @@ export default function Form() {
               />
             </div>
             <button type="submit" className="startButton">
-              Enviar <FiSend size={25} color="#fff" />
+              Enviar <FiSend size={25} color="#333" />
             </button>
           </form>
         </div>

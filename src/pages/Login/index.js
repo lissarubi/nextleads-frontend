@@ -72,7 +72,7 @@ export default function Login() {
             </div>
             <br />
             <button type="submit" className="startButton" id="postForm">
-              Enviar <FiLogIn size={25} color="#fff" />
+              Enviar <FiLogIn size={25} color="#333" />
             </button>
           </form>
         </div>
