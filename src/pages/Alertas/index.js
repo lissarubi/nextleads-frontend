@@ -68,7 +68,6 @@ export default function Alertas() {
     }
   });
 
-  console.log(leadsAlert);
   return (
     <div class="alertas-conteiner">
       <header>

@@ -19,7 +19,6 @@ export default function Estatisticas() {
     const navlinks = document.querySelector('div.navlinks');
     navlinks.classList.toggle('active');
   }
-  console.log(instName);
   if (instName === null || loginId === null) {
     history.push('/');
   }
