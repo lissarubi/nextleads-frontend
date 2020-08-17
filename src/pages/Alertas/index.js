@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 import Sidebar from '../../utils/Sidebar';
 import api from '../../services/api';
 import Darkmode from 'darkmode-js';
@@ -9,7 +10,7 @@ import Darkmode from 'darkmode-js';
 const darkmode = new Darkmode();
 darkmode.showWidget();
 
-export default function Estatisticas() {
+export default function Alertas() {
   const [leads, setLeads] = useState([]);
   const instName = localStorage.getItem('instName');
   const loginId = localStorage.getItem('loginId');
@@ -19,7 +20,7 @@ export default function Estatisticas() {
     const navlinks = document.querySelector('div.navlinks');
     navlinks.classList.toggle('active');
   }
-  console.log(instName);
+
   if (instName === null || loginId === null) {
     history.push('/');
   }
@@ -41,20 +42,35 @@ export default function Estatisticas() {
     history.push('/');
   }
 
-  function getContacted(lead) {
-    return lead.contacted === true;
+  function convertMS(ms) {
+    var d, h, m, s;
+    s = Math.floor(ms / 1000);
+    m = Math.floor(s / 60);
+    s = s % 60;
+    h = Math.floor(m / 60);
+    m = m % 60;
+    d = Math.floor(h / 24);
+    h = h % 24;
+    return d;
   }
+  const leadsAlert = Array();
 
-  function getInterested(lead) {
-    return lead.interested === true;
-  }
+  leads.forEach((lead) => {
+    if (lead.reminder > 0) {
+      const daysDiff = convertMS(new Date() - new Date(lead.date));
+      leadsAlert.push({
+        name: lead.name,
+        email: lead.email,
+        tel: lead.tel,
+        days: daysDiff,
+        reminder: lead.reminder,
+      });
+    }
+  });
 
-  function getMatriculated(lead) {
-    return lead.matriculated === true;
-  }
-
+  console.log(leadsAlert);
   return (
-    <div className="Estatisticas-conteiner">
+    <div class="alertas-conteiner">
       <header>
         <nav>
           <Link
@@ -80,31 +96,32 @@ export default function Estatisticas() {
         </nav>
       </header>
       <Sidebar />
-      <div className="statistics">
-        <div className="statsCard total">
-          <h1>Leads Totais</h1>
-          <div className="statsNumber">Há {leads.length} Leads</div>
-        </div>
-
-        <div className="statsCard contacts">
-          <h1>Contactados</h1>
-          <div className="statsNumber">
-            {leads.length} de {leads.filter(getContacted).length} Leads
-          </div>
-        </div>
-
-        <div className="statsCard interests">
-          <h1>Interesados</h1>
-          <div className="statsNumber">
-            {leads.length} de {leads.filter(getInterested).length} Leads
-          </div>
-        </div>
-
-        <div className="statsCard matriculates">
-          <h1>Matrículados</h1>
-          <div className="statsNumber">
-            {leads.length} de {leads.filter(getMatriculated).length} Leads
-          </div>
+      <div className="centralize">
+        <div className="alertBox">
+          {leadsAlert.map((lead) =>
+            lead.days >= lead.reminder ? (
+              <div className="alertLead">
+                <div className="alertInfoBox">
+                  <div className="alertInfo">
+                    <strong>Nome: </strong>
+                    {lead.name}
+                  </div>
+                  <div className="alertInfo">
+                    <strong>Email: </strong>
+                    {lead.email}
+                  </div>
+                  <div className="alertInfo">
+                    <strong>Telefone: </strong>
+                    {lead.tel}
+                  </div>
+                </div>
+                <div className="alertDetails">
+                  passou do seu lembrete de {lead.reminder} dia(s),
+                  contabilizando {lead.days} dia(s)
+                </div>
+              </div>
+            ) : null,
+          )}
         </div>
       </div>
     </div>

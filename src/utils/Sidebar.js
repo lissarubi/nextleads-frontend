@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiUsers, FiTrendingUp, FiSliders } from 'react-icons/fi';
+import {
+  FiUsers,
+  FiTrendingUp,
+  FiSliders,
+  FiAlertCircle,
+} from 'react-icons/fi';
 
 export default function Sidebar() {
   return (
@@ -21,6 +26,16 @@ export default function Sidebar() {
             />
             <br />
             Estatísticas
+          </div>
+        </Link>
+        <Link to="/alertas" className="sidebarItem">
+          <div>
+            <FiAlertCircle
+              size={40}
+              style={{ fill: '#333', color: 'gainsboro' }}
+            />
+            <br />
+            Alertas
           </div>
         </Link>
         <Link to="/configurar" className="sidebarItem">

@@ -17,7 +17,7 @@
   margin-top: 1vh;
   margin-left: 1vw;
   font-size: 3ch;
-  width: 28vw;
+  width: 25vw;
   max-width: 10em;
   border-style: solid;
   padding: 0.6em;
@@ -35,9 +35,7 @@
   padding: 3em;
   border-radius: 10px;
   text-align: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  font-size: 1.6ch;
 }
 .leadScroll {
   background-color: #ddd;

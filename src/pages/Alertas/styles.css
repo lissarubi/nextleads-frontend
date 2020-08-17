@@ -1,0 +1,45 @@
+.centralize {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.alertBox {
+  margin-top: 3vh;
+  width: 78%;
+  margin-left: 18vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.alertLead {
+  width: 30vw;
+  height: 50vh;
+  background-color: #efefef;
+  border-style: solid;
+  border-color: #c21808;
+  border-radius: 10px;
+  font-size: 2.5ch;
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.alertInfoBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 40%;
+}
+.alertInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ddd;
+  padding: 0.4em;
+  border-radius: 10px;
+}
+.alertDetails {
+  height: 20%;
+}

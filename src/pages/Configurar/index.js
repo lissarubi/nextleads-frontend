@@ -21,7 +21,7 @@ export default function Configurar() {
     navlinks.classList.toggle('active');
   }
 
-  if (instName === undefined || loginId === undefined) {
+  if (instName === null || loginId === null) {
     history.push('/');
   }
 

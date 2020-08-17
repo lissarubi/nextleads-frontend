@@ -7,6 +7,7 @@ import Form from './pages/Form';
 import Thanks from './pages/thanks';
 import Estatisticas from './pages/Estatisticas';
 import Configurar from './pages/Configurar';
+import Alertas from './pages/Alertas';
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
         <Route path="/thanks" component={Thanks} />
         <Route path="/estatisticas" component={Estatisticas} />
         <Route path="/configurar" component={Configurar} />
+        <Route path="/alertas" component={Alertas} />
       </Switch>
     </BrowserRouter>
   );
