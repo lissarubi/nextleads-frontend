@@ -1,0 +1,41 @@
+.exports {
+  margin-top: 3vh;
+  width: 78%;
+  margin-left: 18vw;
+  padding: 1.5vw;
+  height: 40vh;
+  border-radius: 10px;
+  font-size: 3ch;
+  background-color: #ebebeb;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.exportItem {
+  background-color: #ddd;
+  padding: 0.5em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.exportButton {
+  background-color: #64b5f6;
+  border-radius: 15px;
+  border-style: none;
+  color: #333;
+  cursor: pointer;
+  padding: 2%;
+  margin-left: 3vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2ch;
+  transition: 500ms;
+}
+.exportButton:hover {
+  background-color: #4db6ac;
+  border-radius: 5px;
+}

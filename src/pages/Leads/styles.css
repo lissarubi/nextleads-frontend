@@ -29,7 +29,8 @@
   width: 98%;
   text-align: center;
   min-height: 10vh;
-  max-height: 45vh;
+  max-height: 60vh;
+  overflow-wrap: break-word;
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
