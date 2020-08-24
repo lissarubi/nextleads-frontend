@@ -6,6 +6,7 @@ import {
   FiSliders,
   FiAlertCircle,
   FiDatabase,
+  FiMail,
 } from 'react-icons/fi';
 
 export default function Sidebar() {
@@ -44,6 +45,13 @@ export default function Sidebar() {
             <FiDatabase size={40} style={{ color: 'gainsboro' }} />
             <br />
             Exportar
+          </div>
+        </Link>
+        <Link to="/email" className="sidebarItem">
+          <div>
+            <FiMail size={40} style={{ fill: '#333', color: 'gainsboro' }} />
+            <br />
+            Email
           </div>
         </Link>
         <Link to="/configurar" className="sidebarItem">

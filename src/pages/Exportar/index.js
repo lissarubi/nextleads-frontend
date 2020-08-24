@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
+import moment from 'moment';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import Sidebar from '../../utils/Sidebar';
@@ -82,12 +83,13 @@ export default function Exportar() {
       email: leads[i].email,
       tel: leads[i].tel,
       reminder: leads[i].reminder,
-      date: leads[i].date,
+      date: moment(new Date(leads[i].date)).locale('pt-br').format('L'),
       contacted: leads[i].contacted == true ? 'sim' : 'não',
       interested: leads[i].interested == true ? 'sim' : 'não',
       matriculated: leads[i].matriculated == true ? 'sim' : 'não',
     });
   }
+  console.log(cuttedLeads);
   function handleCSV() {
     const leadsCSV = ConvertToCSV(cuttedLeads);
     download('planilhaLeads.csv', leadsCSV);

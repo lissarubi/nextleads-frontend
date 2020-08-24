@@ -4,11 +4,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Leads from './pages/Leads';
 import Form from './pages/Form';
-import Thanks from './pages/thanks';
+import Thanks from './pages/Thanks';
 import Estatisticas from './pages/Estatisticas';
 import Configurar from './pages/Configurar';
 import Alertas from './pages/Alertas';
 import Exportar from './pages/Exportar';
+import Email from './pages/Email';
 
 export default function Routes() {
   return (
@@ -22,6 +23,7 @@ export default function Routes() {
         <Route path="/alertas" component={Alertas} />
         <Route path="/exportar" component={Exportar} />
         <Route path="/configurar" component={Configurar} />
+        <Route path="/email" component={Email} />
       </Switch>
     </BrowserRouter>
   );

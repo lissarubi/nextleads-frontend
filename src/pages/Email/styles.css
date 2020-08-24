@@ -1,0 +1,37 @@
+.emails {
+  margin-top: 3vh;
+  width: 78%;
+  margin-left: 18vw;
+  padding: 1.5vw;
+  height: 40vh;
+  border-radius: 10px;
+  font-size: 3ch;
+  background-color: #ebebeb;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.email {
+  width: 50%;
+  font-size: 1.5ch;
+  height: 2em;
+}
+.emailBox{
+  margin-bottom: 1vh;
+}
+.buttonEmail {
+  height: 2em;
+  width: 2em;
+  font-size: 1.5ch;
+  color: black;
+  background-color: #eee;
+  border-color: #ccc;
+  border-style: solid;
+  border-radius: 5px;
+  margin-left: 0.5em;
+}
+.listEmails{
+  height: 40vh;
+  overflow: scroll;
+}
