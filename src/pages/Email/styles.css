@@ -17,7 +17,7 @@
   font-size: 1.5ch;
   height: 2em;
 }
-.emailBox{
+.emailBox {
   margin-bottom: 1vh;
 }
 .buttonEmail {
@@ -31,7 +31,37 @@
   border-radius: 5px;
   margin-left: 0.5em;
 }
-.listEmails{
+.listEmails {
   height: 40vh;
   overflow: scroll;
+}
+.messages {
+  margin-top: 3vh;
+  width: 78%;
+  margin-left: 18vw;
+  padding: 1.5vw;
+  height: 40vh;
+  border-radius: 10px;
+  font-size: 3ch;
+  background-color: #ebebeb;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 40vh;
+}
+.messages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50vh;
+}
+.message {
+  font-size: 1.5ch;
+  resize: none;
+  border-radius: 10px;
+  border-style: none;
+  padding: 10px;
+  width: 90%;
+  height: 40vh;
 }

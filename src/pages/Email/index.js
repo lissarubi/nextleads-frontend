@@ -105,6 +105,9 @@ export default function Configurar() {
             </div>
         </div>
       </div>
+      <div className="messages">
+        <textarea id="" className="message" name="" placeholder="Mensagem do Email"></textarea>
+      </div>
     </div>
   );
 }
