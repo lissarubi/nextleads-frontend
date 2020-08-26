@@ -44,22 +44,55 @@ export default function Configurar() {
 
   function handleEmailAdd(e) {
     e.preventDefault();
-    const listEmails = document.getElementById('listEmails')
-    const newElement = document.createElement('div')
-    
-    const newElementContent = '<div class=\"emailBox\"><input id=\"email\" type=\"email\" class=\"email\" placeholder=\"Email\"><button class=\"buttonEmail\">+</button><button class=\"buttonEmail\">-</button></div>'
+    const listEmails = document.getElementById('listEmails');
+    const newElement = document.createElement('div');
 
-    newElement.innerHTML = newElementContent.trim()
-    console.log(newElement.firstChild)
-    newElement.firstChild.children[1].onclick = (e) => {handleEmailAdd(e)}
-    newElement.firstChild.children[2].onclick = (e) => {handleEmailDelete(e)}
-    listEmails.appendChild(newElement.firstChild)
+    const newElementContent =
+      '<div class="emailBox"><input id="email" type="email" class="email" placeholder="Email"><button class="buttonEmail">+</button><button class="buttonEmail">-</button></div>';
+
+    newElement.innerHTML = newElementContent.trim();
+    newElement.firstChild.children[1].onclick = (e) => {
+      handleEmailAdd(e);
+    };
+    newElement.firstChild.children[2].onclick = (e) => {
+      handleEmailDelete(e);
+    };
+    listEmails.appendChild(newElement.firstChild);
   }
 
   function handleEmailDelete(e) {
     e.preventDefault();
-    console.log(e.target)
     e.target.parentElement.remove();
+  }
+  function handleSendEmail() {
+    const emails = document.getElementById('listEmails');
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    const emailsArray = Array();
+
+    for (var i = 0; i < emails.children.length; i++) {
+      emailsArray.push(emails.children[i].firstChild.value);
+    }
+
+    if (
+      (emailsArray.length == 1 && emailsArray[0].length === 0) ||
+      subject.length == 0 ||
+      message.length == 0
+    ) {
+      swal(
+        'Erro',
+        'Complete todos os campos de pelo menos um email, título e mensagem!',
+        'error',
+      );
+    } else {
+      const data = { emails: emailsArray, subject, message };
+      try {
+        api.post('/email', data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
   return (
     <div className="email-conteiner">
@@ -90,23 +123,33 @@ export default function Configurar() {
       <Sidebar />
       <div className="emails" id="emails">
         <div className="listEmails" id="listEmails">
-            <div className="emailBox">
-              <input
-                id="email"
-                type="email"
-                className="email"
-                placeholder="Email"
-              />
-              <button
-                onClick={(e) => handleEmailAdd(e)}
-                className="buttonEmail">
-                +
-              </button>
-            </div>
+          <div className="emailBox">
+            <input
+              id="email"
+              type="email"
+              className="email"
+              placeholder="Email"
+            />
+            <button onClick={(e) => handleEmailAdd(e)} className="buttonEmail">
+              +
+            </button>
+          </div>
         </div>
       </div>
       <div className="messages">
-        <textarea id="" className="message" name="" placeholder="Mensagem do Email"></textarea>
+        <input
+          type="text"
+          placeholder="Título"
+          id="subject"
+          className="subject"
+        />
+        <textarea
+          id="message"
+          className="message"
+          placeholder="Corpo do Email"></textarea>
+        <button className="send startButton" onClick={handleSendEmail}>
+          Enviar
+        </button>
       </div>
     </div>
   );

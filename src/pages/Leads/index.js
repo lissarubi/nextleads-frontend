@@ -3,6 +3,7 @@ import './styles.css';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import Sidebar from '../../utils/Sidebar';
+import swal from 'sweetalert';
 import api from '../../services/api';
 import Darkmode from 'darkmode-js';
 const darkmode = new Darkmode();
@@ -57,7 +58,7 @@ export default function Leads() {
         window.location.reload(false);
       }, 1000);
     } catch (err) {
-      alert('Falha na conexão, tente novamente mais tarde');
+      swal('Falha na conexão, tente novamente mais tarde');
     }
   }
   async function handleInterested(leadId, instId) {
@@ -77,7 +78,7 @@ export default function Leads() {
         window.location.reload(false);
       }, 1000);
     } catch (err) {
-      alert('Falha na conexão, tente novamente mais tarde');
+      swal('Falha na conexão, tente novamente mais tarde');
     }
   }
   async function handleMatriculated(leadId, instId) {
@@ -97,7 +98,7 @@ export default function Leads() {
         window.location.reload(false);
       }, 1000);
     } catch (err) {
-      alert('Falha na conexão, tente novamente mais tarde ');
+      swal('Falha na conexão, tente novamente mais tarde ');
     }
   }
   async function handleDelete(leadId, instId) {
@@ -112,7 +113,7 @@ export default function Leads() {
         window.location.reload(false);
       }, 1000);
     } catch (err) {
-      alert('Falha na conexão, tente novamente mais tarde ');
+      swal('Falha na conexão, tente novamente mais tarde ');
     }
   }
   return (
