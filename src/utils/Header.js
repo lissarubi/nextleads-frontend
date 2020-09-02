@@ -19,7 +19,7 @@ export default function Header(){
                     <span className="bar"></span>
                 </Link>
                 <div className="navlinks">
-                    <Link to="/"><div className="li">Next</div></Link>
+                    <Link to="/"><div className="li">Next Leads</div></Link>
                 </div>
                 <div className="themeBox">
                 </div>

@@ -43,7 +43,7 @@ nav {
   border-radius: 15px;
   background-color: #ebebeb;
   width: 40vw;
-  height: 40vh;
+  height: 50vh;
   font-size: 3ch;
   margin-left: auto;
   margin-right: auto;
@@ -56,6 +56,7 @@ nav {
 .formInput {
   font-size: 1.5ch;
   width: 90%;
+  margin-bottom: 1vh;
   border-style: solid;
   border-radius: 5px;
   padding: 3%;
@@ -169,4 +170,18 @@ main {
   background-color: #222;
   padding: 0.5em;
   margin-bottom: 2vh;
+}
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 90%;
+  }
+  .sidebar {
+    width: 20vw;
+  }
+  .sidebarItem{
+    font-size: 1.5ch;
+  }
+  .nav{
+    left: 100px;
+  }
 }

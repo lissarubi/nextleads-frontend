@@ -9,6 +9,7 @@ import Header from '../../utils/Header';
 export default function Form() {
   const [instName, setInstName] = useState('');
   const [instId, setInstId] = useState('');
+  const [instImage, setInstImage] = useState('');
   const history = useHistory();
 
   const [leadName, setLeadName] = useState('');
@@ -27,6 +28,7 @@ export default function Form() {
         if (possibleIds[i].username === x) {
           setInstName(possibleIds[i].name);
           setInstId(possibleIds[i].loginid);
+          setInstImage(possibleIds[i].image);
         } else {
           window.location.href = '/';
         }
@@ -71,6 +73,12 @@ export default function Form() {
             Preencha o formulário abaixo para ser contactado pela {instName}
           </span>
           <form className="form" onSubmit={handleForm}>
+            <img
+              className="logoInst"
+              src={instImage}
+              alt=""
+              style={{ maxHeight: '80%', maxWidth: '80%' }}
+            />
             <div className="loginItem">
               <input
                 className="formInput"
